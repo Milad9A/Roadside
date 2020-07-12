@@ -1,0 +1,8 @@
+$basic  = new \Nexmo\Client\Credentials\Basic('61c88380', 'OtRLDQHZsf3VqNX8');
+$client = new \Nexmo\Client($basic);
+
+$message = $client->message()->send([
+    'to' => '971504510288',
+    'from' => 'Nexmo',
+    'text' => 'Hello from Nexmo'
+]);

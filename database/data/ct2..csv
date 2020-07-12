@@ -1,0 +1,71 @@
+city,lat,lng,country
+Tokyo,35.685,139.7514,Japan
+New York,40.6943,-73.9249,United States
+Mexico City,19.4424,-99.131,Mexico
+Mumbai,19.017,72.857,India
+São Paulo,-23.5587,-46.625,Brazil
+Delhi,28.67,77.23,India
+Shanghai,31.2165,121.4365,China
+Kolkata,22.495,88.3247,India
+Los Angeles,34.1139,-118.4068,United States
+Dhaka,23.7231,90.4086,Bangladesh
+Buenos Aires,-34.6025,-58.3975,Argentina
+Karachi,24.87,66.99,Pakistan
+Cairo,30.05,31.25,Egypt
+Rio de Janeiro,-22.925,-43.225,Brazil
+Ōsaka,34.75,135.4601,Japan
+Beijing,39.9289,116.3883,China
+Manila,14.6042,120.9822,Philippines
+Moscow,55.7522,37.6155,Russia
+Istanbul,41.105,29.01,Turkey
+Paris,48.8667,2.3333,France
+Seoul,37.5663,126.9997,"Korea, South"
+Lagos,6.4433,3.3915,Nigeria
+Jakarta,-6.1744,106.8294,Indonesia
+Guangzhou,23.145,113.325,China
+Chicago,41.8373,-87.6862,United States
+London,51.5,-0.1167,United Kingdom
+Lima,-12.048,-77.0501,Peru
+Tehran,35.6719,51.4243,Iran
+Kinshasa,-4.3297,15.315,Congo (Kinshasa)
+"Bogotá",4.5964,-74.0833,Colombia
+Shenzhen,22.5524,114.1221,China
+Wuhan,30.58,114.27,China
+Hong Kong,22.305,114.185,Hong Kong
+Tianjin,39.13,117.2,China
+Chennai,13.09,80.28,India
+Taipei,25.0358,121.5683,Taiwan
+Bengalūru,12.97,77.56,India
+Bangkok,13.75,100.5166,Thailand
+Lahore,31.56,74.35,Pakistan
+Chongqing,29.565,106.595,China
+Miami,25.7839,-80.2102,United States
+Hyderabad,17.4,78.48,India
+Dallas,32.7936,-96.7662,United States
+Santiago,-33.45,-70.667,Chile
+Philadelphia,40.0077,-75.1339,United States
+Belo Horizonte,-19.915,-43.915,Brazil
+Madrid,40.4,-3.6834,Spain
+Houston,29.7869,-95.3905,United States
+Ahmadābād,23.0301,72.58,India
+Ho Chi Minh City,10.78,106.695,Vietnam
+Washington,38.9047,-77.0163,United States
+Xiangtan,27.8504,112.9,China
+Lanzhou,36.056,103.792,China
+Incheon,37.4761,126.6422,"Korea, South"
+Sapporo,43.075,141.34,Japan
+Xiamen,24.45,118.08,China
+Guayaquil,-2.22,-79.92,Ecuador
+George Town,5.4136,100.3294,Malaysia
+Mashhad,36.27,59.57,Iran
+Damascus,33.5,36.3,Syria
+Daegu,35.8668,128.607,"Korea, South"
+Nāgpur,21.17,79.09,India
+Lianshan,40.7503,120.83,China
+Shijiazhuang,38.05,114.48,China
+Tunis,36.8028,10.1797,Tunisia
+Vienna,48.2,16.3666,Austria
+Jilin,43.85,126.55,China
+Omdurman,15.6167,32.48,Sudan
+Bandung,-6.95,107.57,Indonesia
+
