@@ -15,4 +15,5 @@ class Service extends Model
         'service_id',
         'is_sub'
     ];
+
 }

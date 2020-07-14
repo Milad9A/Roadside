@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Dashboard;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -61,6 +62,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'assign.guard' => \App\Http\Middleware\AssignGuard::class,
+        'dashboard' => \App\Http\Middleware\Dashboard::class,
+        'admin' => \App\Http\Middleware\Admin::class,
     ];
 
     /**

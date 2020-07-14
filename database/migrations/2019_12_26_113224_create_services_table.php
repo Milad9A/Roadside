@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->string('photo')->default('/images/default.jpg')->nullable();
             $table->string('photo_selected')->default('/images/default.jpg')->nullable();
             $table->unsignedBigInteger('service_id')->nullable();
-            $table->boolean('is_sub')->nullable();
+            $table->boolean('is_sub')->nullable()->default(0);
             $table->timestamps();
         });
     }

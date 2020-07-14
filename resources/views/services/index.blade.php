@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('User Management')])
+@extends('layouts.app', ['activePage' => 'service-management', 'titlePage' => __('Service Management')])
 
 @section('content')
     <div class="content">
@@ -7,8 +7,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{ __('Users') }}</h4>
-                            <p class="card-category"> {{ __('Here you can manage users') }}</p>
+                            <h4 class="card-title ">{{ __('Services') }}</h4>
+                            <p class="card-category"> {{ __('Here you can manage Services') }}</p>
                         </div>
                         <div class="card-body">
                             @if (session('status'))
@@ -25,21 +25,21 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="{{ route('user.create') }}"
-                                       class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                                    <a href="{{ route('service.create') }}"
+                                       class="btn btn-sm btn-primary">{{ __('Add Service') }}</a>
                                 </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        {{ __('Name') }}
+                                        id
                                     </th>
                                     <th>
-                                        {{ __('Email') }}
+                                        {{ __('Name in Arabic') }}
                                     </th>
                                     <th>
-                                        {{ __('Role') }}
+                                        {{ __('Name in English') }}
                                     </th>
                                     <th>
                                         {{ __('Creation date') }}
@@ -49,47 +49,40 @@
                                     </th>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($services as $service)
                                         <tr>
                                             <td>
-                                                {{ $user->name }}
+                                                {{ $service->id }}
                                             </td>
                                             <td>
-                                                {{ $user->email }}
+                                                {{ $service->name_ar }}
                                             </td>
                                             <td>
-                                                {{ $user->role->name }}
+                                                {{ $service->name_en }}
                                             </td>
                                             <td>
-                                                {{ $user->created_at->format('Y-m-d') }}
+                                                {{ $service->created_at->format('Y-m-d') }}
                                             </td>
-                                            <td class="td-actions text-right">
-                                                @if ($user->id != auth()->id())
-                                                    <form action="{{ route('user.destroy', $user) }}" method="post">
-                                                        @csrf
-                                                        @method('delete')
 
-                                                        <a rel="tooltip" class="btn btn-success btn-link"
-                                                           href="{{ route('user.edit', $user) }}" data-original-title=""
-                                                           title="">
-                                                            <i class="material-icons">edit</i>
-                                                            <div class="ripple-container"></div>
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger btn-link"
-                                                                data-original-title="" title=""
-                                                                onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                            <i class="material-icons">close</i>
-                                                            <div class="ripple-container"></div>
-                                                        </button>
-                                                    </form>
-                                                @else
+                                            <td class="td-actions text-right">
+                                                <form action="{{ route('service.destroy', $service) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+
                                                     <a rel="tooltip" class="btn btn-success btn-link"
-                                                       href="{{ route('profile.edit') }}" data-original-title=""
+                                                       href="{{ route('service.edit', $service) }}"
+                                                       data-original-title=""
                                                        title="">
                                                         <i class="material-icons">edit</i>
                                                         <div class="ripple-container"></div>
                                                     </a>
-                                                @endif
+                                                    <button type="button" class="btn btn-danger btn-link"
+                                                            data-original-title="" title=""
+                                                            onclick="confirm('{{ __("Are you sure you want to delete this service?") }}') ? this.parentElement.submit() : ''">
+                                                        <i class="material-icons">close</i>
+                                                        <div class="ripple-container"></div>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\User;
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return[
+        return [
             'name' => [
                 'required', 'min:3'
             ],
@@ -34,6 +34,9 @@ class UserRequest extends FormRequest
             ],
             'password' => [
                 $this->route()->user ? 'nullable' : 'required', 'confirmed', 'min:6'
+            ],
+            'role_id' => [
+                'required'
             ]
         ];
     }
