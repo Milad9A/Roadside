@@ -43,4 +43,16 @@ Route::group(['middleware' => ['auth', 'dashboard']], function () {
     Route::get('service/sub/{sub}/edit', 'SubServiceController@edit')->name('service.sub.edit');
     Route::put('service/sub/{sub}', 'SubServiceController@update')->name('service.sub.update');
     Route::delete('service/sub/{sub}/destroy', 'SubServiceController@destroy')->name('service.sub.destroy');
+
+    Route::get('request', 'RequestsController@index')->name('request.index');
+    Route::get('request/create', 'RequestsController@create')->name('request.create');
+    Route::post('request', 'RequestsController@store')->name('request.store');
+    Route::get('request/{request}/edit', 'RequestsController@edit')->name('request.edit');
+    Route::put('request/{request}', 'RequestsController@update')->name('request.update');
+    Route::delete('request/{request}/destroy', 'RequestsController@destroy')->name('request.destroy');
 });
+
+
+
+Route::get('googlemap', 'MapController@map')->name('map');
+Route::get('googlemap/direction', 'MapController@direction');

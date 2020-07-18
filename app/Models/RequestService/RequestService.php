@@ -2,9 +2,11 @@
 
 namespace App\Models\RequestService;
 
+use App\Company;
 use App\Models\OfferRequest\OfferRequest;
 use App\Models\TowServiceDetail\TowServiceDetails;
 use App\Models\TransportServiceDetail\TransportServiceDetails;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class RequestService extends Model
@@ -28,14 +30,24 @@ class RequestService extends Model
 
     public function towServiceDetails()
     {
-        return $this->hasOne(TowServiceDetails::class,'request_services_id','id');
+        return $this->hasOne(TowServiceDetails::class, 'request_services_id', 'id');
     }
     public function transportServiceDetails()
     {
-        return $this->hasOne(TransportServiceDetails::class,'request_services_id','id');
+        return $this->hasOne(TransportServiceDetails::class, 'request_services_id', 'id');
     }
     public function offers()
     {
-        return $this->hasMany(OfferRequest::class,'request_service_id','id');
+        return $this->hasMany(OfferRequest::class, 'request_service_id', 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }

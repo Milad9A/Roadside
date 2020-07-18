@@ -33,7 +33,7 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        id
+                                        Id
                                     </th>
                                     <th>
                                         {{ __('Name in Arabic') }}
