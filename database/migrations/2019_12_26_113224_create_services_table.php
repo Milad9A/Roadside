@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('name_ar');
             $table->string('name_en');
-            $table->string('type')->nullable();
+            $table->string('type')->nullable()->default('service');
             $table->string('photo')->default('/images/default.jpg')->nullable();
             $table->string('photo_selected')->default('/images/default.jpg')->nullable();
             $table->unsignedBigInteger('service_id')->nullable();
