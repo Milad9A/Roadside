@@ -32,6 +32,13 @@ Route::group(['middleware' => ['auth', 'dashboard']], function () {
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
+    Route::get('company', 'CompanyController@index')->name('company.index');
+    Route::get('company/create', 'CompanyController@create')->name('company.create');
+    Route::post('company', 'CompanyController@store')->name('company.store');
+    Route::get('company/{company}/edit', 'CompanyController@edit')->name('company.edit');
+    Route::put('company/{company}', 'CompanyController@update')->name('company.update');
+    Route::delete('company/{company}/destroy', 'CompanyController@destroy')->name('company.destroy');
+
     Route::get('service', 'ServiceController@index')->name('service.index');
     Route::get('service/create', 'ServiceController@create')->name('service.create');
     Route::post('service', 'ServiceController@store')->name('service.store');
@@ -51,7 +58,6 @@ Route::group(['middleware' => ['auth', 'dashboard']], function () {
     Route::put('request/{request}', 'RequestsController@update')->name('request.update');
     Route::delete('request/{request}/destroy', 'RequestsController@destroy')->name('request.destroy');
 });
-
 
 
 Route::get('request/{request}/map', 'MapController@map')->name('map');
