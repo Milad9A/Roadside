@@ -50,4 +50,12 @@ class RequestService extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function resolveChildRouteBinding($childType, $value, $field)
+    {
+        // TODO: Implement resolveChildRouteBinding() method.
+    }
 }

@@ -54,5 +54,5 @@ Route::group(['middleware' => ['auth', 'dashboard']], function () {
 
 
 
-Route::get('googlemap', 'MapController@map')->name('map');
+Route::get('request/{request}/map', 'MapController@map')->name('map');
 Route::get('googlemap/direction', 'MapController@direction');

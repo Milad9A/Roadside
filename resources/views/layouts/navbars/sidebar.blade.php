@@ -45,7 +45,7 @@
                                 <span class="sidebar-normal"> {{ __('Service Management') }} </span>
                             </a>
                         </li>
-                        <li class="nav-item{{ $activePage == 'requests-management' ? ' active' : '' }}">
+                        <li class="nav-item{{ $activePage == 'request-management' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('request.index') }}">
                                 <span class="sidebar-mini"> RM </span>
                                 <span class="sidebar-normal"> {{ __('Request Management') }} </span>
