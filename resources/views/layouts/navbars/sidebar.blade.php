@@ -57,14 +57,14 @@
                                 <span class="sidebar-normal"> {{ __('Request Management') }} </span>
                             </a>
                         </li>
+                        <li class="nav-item{{ $activePage == 'offer-management' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('offer.index') }}">
+                                <span class="sidebar-mini"> OM </span>
+                                <span class="sidebar-normal"> {{ __('Offer Management') }} </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </li>
-            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
-                    <i class="material-icons">content_paste</i>
-                    <p>{{ __('Table List') }}</p>
-                </a>
             </li>
         </ul>
     </div>

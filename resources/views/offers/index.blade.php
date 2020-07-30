@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'request-management', 'titlePage' => __('Request Management')])
+@extends('layouts.app', ['activePage' => 'offer-management', 'titlePage' => __('Offer Management')])
 
 @section('content')
     <div class="content">
@@ -7,8 +7,8 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">{{ __('Requests') }}</h4>
-                            <p class="card-category"> {{ __('Here you can manage Requests') }}</p>
+                            <h4 class="card-title ">{{ __('Offers') }}</h4>
+                            <p class="card-category"> {{ __('Here you can manage offers') }}</p>
                         </div>
                         <div class="card-body">
                             @if (session('status'))
@@ -23,12 +23,6 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="row">
-                                <div class="col-12 text-right">
-                                    <a href="{{ route('request.create') }}"
-                                       class="btn btn-sm btn-primary">{{ __('Add Request') }}</a>
-                                </div>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
@@ -36,22 +30,28 @@
                                         Id
                                     </th>
                                     <th>
-                                        {{ __('Customer') }}
+                                        {{ __('Title') }}
                                     </th>
                                     <th>
-                                        {{ __('Company') }}
-                                    </th>
-                                    <th>
-                                        {{ __('Service Id') }}
-                                    </th>
-                                    <th>
-                                        {{ __('Type') }}
+                                        {{ __('Content') }}
                                     </th>
                                     <th>
                                         {{ __('Status') }}
                                     </th>
                                     <th>
-                                        {{ __('Offers') }}
+                                        {{ __('Price') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Service Id') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Request Service Id') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Owner Request Id') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Company Id') }}
                                     </th>
                                     <th>
                                         {{ __('Creation date') }}
@@ -61,52 +61,55 @@
                                     </th>
                                     </thead>
                                     <tbody>
-                                    @foreach($request_services as $request_s)
+                                    @foreach($offers as $offer)
                                         <tr>
                                             <td>
-                                                {{ $request_s->id }}
+                                                {{ $offer->id }}
                                             </td>
                                             <td>
-                                                {{ $request_s->customer->name }}
+                                                {{ $offer->title }}
                                             </td>
                                             <td>
-                                                {{ $request_s->company->name }}
+                                                {{ $offer->content }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('service.sub.edit', ['service' => $request_s->service_id]) }}">
-                                                    {{ $request_s->service_id }}
+                                                {{ $offer->status }}
+                                            </td>
+                                            <td>
+                                                {{ $offer->price }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('service.sub.edit', ['service' => $offer->service_id]) }}">
+                                                    {{ $offer->service_id }}
                                                 </a>
                                             </td>
                                             <td>
-                                                {{ $request_s->type }}
-                                            </td>
-                                            <td>
-                                                {{ $request_s->status }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('offer.index', ['request_s' => $request_s->id]) }}">
-                                                    View
+                                                <a href="{{ route('request.edit', ['request' => $offer->request_service_id]) }}">
+                                                    {{ $offer->request_service_id }}
                                                 </a>
                                             </td>
                                             <td>
-                                                {{ $request_s->created_at->format('Y-m-d') }}
+                                                <a href="{{ route('user.edit', ['user' => $offer->owner_request_id]) }}">
+                                                    {{ $offer->owner_request_id }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('company.edit', ['company' => $offer->company_id]) }}">
+                                                    {{ $offer->company_id }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ $offer->created_at->format('Y-m-d') }}
                                             </td>
 
                                             <td class="td-actions text-right">
-                                                <form action="{{ route('request.destroy', $request_s) }}" method="post">
+                                                <form action="{{ route('offer.destroy', $offer) }}" method="post">
                                                     @csrf
                                                     @method('delete')
 
-                                                    <a rel="tooltip" class="btn btn-success btn-link"
-                                                       href="{{ route('request.edit', $request_s) }}"
-                                                       data-original-title=""
-                                                       title="">
-                                                        <i class="material-icons">edit</i>
-                                                        <div class="ripple-container"></div>
-                                                    </a>
                                                     <button type="button" class="btn btn-danger btn-link"
                                                             data-original-title="" title=""
-                                                            onclick="confirm('{{ __("Are you sure you want to delete this request?") }}') ? this.parentElement.submit() : ''">
+                                                            onclick="confirm('{{ __("Are you sure you want to delete this offer?") }}') ? this.parentElement.submit() : ''">
                                                         <i class="material-icons">close</i>
                                                         <div class="ripple-container"></div>
                                                     </button>

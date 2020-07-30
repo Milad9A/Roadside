@@ -9,24 +9,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware(['auth', 'dashboard']);
 
 Route::group(['middleware' => ['auth', 'dashboard']], function () {
-    Route::get('table-list', function () {
-        return view('pages.table_list');
-    })->name('table');
-
-    Route::get('notifications', function () {
-        return view('pages.notifications');
-    })->name('notifications');
-
-    Route::get('rtl-support', function () {
-        return view('pages.language');
-    })->name('language');
-
-    Route::get('upgrade', function () {
-        return view('pages.upgrade');
-    })->name('upgrade');
-});
-
-Route::group(['middleware' => ['auth', 'dashboard']], function () {
     Route::resource('user', 'UserController', ['except' => ['show']])->middleware('admin');
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
@@ -57,6 +39,10 @@ Route::group(['middleware' => ['auth', 'dashboard']], function () {
     Route::get('request/{request}/edit', 'RequestsController@edit')->name('request.edit');
     Route::put('request/{request}', 'RequestsController@update')->name('request.update');
     Route::delete('request/{request}/destroy', 'RequestsController@destroy')->name('request.destroy');
+
+    Route::get('offer', 'OffersController@index')->name('offer.index');
+    Route::delete('offer/{offer}/destroy', 'OffersController@destroy')->name('offer.destroy');
+
 });
 
 

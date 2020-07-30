@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <form method="post" action="{{ route('user.update', $user) }}" autocomplete="off"
                           class="form-horizontal">
-                        @csrf
+                    @csrf
                         @method('put')
 
                         <div class="card ">

@@ -19,11 +19,16 @@ class CreateOfferRequestsTable extends Migration
             $table->text('content')->nullable();
             $table->string('status')->default('sent')->nullable();
             $table->decimal('price',8,2)->nullable();
-            $table->unsignedBigInteger('service_id')->nullable();
-            $table->unsignedBigInteger('request_service_id')->nullable();
-            $table->unsignedBigInteger('owner_request_id')->nullable();
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedInteger('service_id');
+            $table->unsignedInteger('request_service_id');
+            $table->unsignedInteger('owner_request_id');
+            $table->unsignedInteger('company_id');
             $table->timestamps();
+
+            $table->foreign('owner_request_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('request_service_id')->references('id')->on('request_services')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
     }
 
