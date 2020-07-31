@@ -70,7 +70,7 @@
                                                 {{ $request_s->customer->name }}
                                             </td>
                                             <td>
-                                                {{ $request_s->company->name }}
+                                                {{ $request_s->company ?  $request_s->company->name : 'No Company' }}
                                             </td>
                                             <td>
                                                 <a href="{{ route('service.sub.edit', ['service' => $request_s->service_id]) }}">

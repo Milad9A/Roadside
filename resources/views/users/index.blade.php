@@ -39,6 +39,9 @@
                                         {{ __('Email') }}
                                     </th>
                                     <th>
+                                        {{ __('Phone Number') }}
+                                    </th>
+                                    <th>
                                         {{ __('Role') }}
                                     </th>
                                     <th>
@@ -56,6 +59,9 @@
                                             </td>
                                             <td>
                                                 {{ $user->email }}
+                                            </td>
+                                            <td>
+                                                {{ $user->phone ? $user->phone : 'No Phone Number' }}
                                             </td>
                                             <td>
                                                 {{ $user->role->name }}
